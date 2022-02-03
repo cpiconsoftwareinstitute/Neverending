@@ -26,6 +26,6 @@ public class Board {
     public int getPositionY(){
         return y;
     }
-    // hello_2
+    // hello_3
 }
 
