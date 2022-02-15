@@ -7,6 +7,7 @@ public class Main {
         int i;
         int n;
         int m;
+        int l;
         double random;
         int board_dimx;
         int board_dimy;
@@ -19,18 +20,13 @@ public class Main {
 
         Aquilles.setName("A");
 
-        /****** Obstacles**************/
+        /****** Obstacles **************/
         Board wall = new Obstacles();
         Board corner_1 = new Obstacles();
         Board corner_2 = new Obstacles();
         Board corner_3 = new Obstacles();
         Board corner_4 = new Obstacles();
 
-        /*String[] names = {"o","^", "<",">","v"};
-        for(n_i:names){
-            System.out.println(n_i);
-
-        }*/
 
         wall.setName("o");
         wall.setPosition(7, 4);
@@ -50,12 +46,16 @@ public class Main {
         Board Paris = new Characters();
         Paris.setName("P");
 
+        Board Hector = new Characters();
+        Hector.setName("H");
+
         Board Helen_Crown = new Treasure();
 
         Aquilles.setPosition(1, 8);
 
         Paris.setPosition(13, 1 );
 
+        Hector.setPosition(2, 1 );
 
         System.out.println("Position for x is: " + Aquilles.getPositionX() +
                 ", Position for y is: " + Aquilles.getPositionY() );
@@ -71,8 +71,9 @@ public class Main {
                 + Aquilles.getPositionY());
 
         element.board_creator(board_dimx, board_dimy, Aquilles,Aquilles.getPositionX(),
-                Aquilles.getPositionY(),Paris,Paris.getPositionX(),
-                Paris.getPositionY(),wall,wall.getPositionX(), wall.getPositionY(),
+                Aquilles.getPositionY(),Paris,Paris.getPositionX(),Paris.getPositionY(),
+                Hector,Hector.getPositionX(),Hector.getPositionY(),
+                wall,wall.getPositionX(), wall.getPositionY(),
                 corner_1,corner_1.getPositionX(),corner_1.getPositionY(),
                 corner_2,corner_2.getPositionX(), corner_2.getPositionY(),
                 corner_3,corner_3.getPositionX(), corner_3.getPositionY(),
@@ -108,7 +109,9 @@ public class Main {
             }
 
             element.board_moving(Aquilles, Aquilles.getPositionX(), Aquilles.getPositionY(),
-                    wall, wall.getPositionX(), wall.getPositionY(), m);
+                     wall.getPositionX(), wall.getPositionY(),corner_1.getPositionX(), corner_1.getPositionY(),
+                    corner_2.getPositionX(), corner_2.getPositionY(),corner_3.getPositionX(), corner_3.getPositionY(),
+                    corner_4.getPositionX(), corner_4.getPositionY(), m);
 
             //Aquilles.move(Aquilles, m);
 
@@ -126,9 +129,15 @@ public class Main {
                 m = 5;
             }
 
-            element.board_moving(Paris, Paris.getPositionX(), Paris.getPositionY(),
-                    wall, wall.getPositionX(), wall.getPositionY(), m);
+            element.board_moving(Paris, Paris.getPositionX(), Paris.getPositionY()
+                    , wall.getPositionX(), wall.getPositionY(),corner_1.getPositionX(), corner_1.getPositionY(),
+                    corner_2.getPositionX(), corner_2.getPositionY(),corner_3.getPositionX(), corner_3.getPositionY(),
+                    corner_4.getPositionX(), corner_4.getPositionY(), m);
 
+            element.board_moving(Hector, Hector.getPositionX(), Hector.getPositionY()
+                    , wall.getPositionX(), wall.getPositionY(),corner_1.getPositionX(), corner_1.getPositionY(),
+                    corner_2.getPositionX(), corner_2.getPositionY(),corner_3.getPositionX(), corner_3.getPositionY(),
+                    corner_4.getPositionX(), corner_4.getPositionY(), m);
             //Paris.move(Paris, m);
 
             for(n=0;n<board_dimy;n++){

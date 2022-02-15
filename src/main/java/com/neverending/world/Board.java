@@ -34,8 +34,9 @@ public class Board {
      * Creator of the Board
      */
     public void board_creator(int board_dimx, int board_dimy, Board Aquilles, int Aqx, int Aqy,
-                              Board Paris, int Pqx, int Pqy, Board wall, int wqx, int wqy
-            ,Board corner_1, int c1qx, int c1qy,Board corner_2, int c2qx, int c2qy,Board corner_3,
+                              Board Paris, int Pqx, int Pqy, Board Hector, int Hqx, int Hqy,
+                              Board wall, int wqx, int wqy,Board corner_1, int c1qx, int c1qy,
+                              Board corner_2, int c2qx, int c2qy,Board corner_3,
                               int c3qx, int c3qy, Board corner_4,int c4qx, int c4qy){
 
         //System.out.println("position: "+ Aqx + "and "+ Aqy);
@@ -49,6 +50,7 @@ public class Board {
         }
         board[Aqx][Aqy]= Aquilles.name;
         board[Pqx][Pqy]= Paris.name;
+        board[Hqx][Hqy]= Hector.name;
         board[wqx][wqy]= wall.name;
         board[c1qx][c1qy]= corner_1.name;
         board[c2qx][c2qy]= corner_2.name;
@@ -58,8 +60,10 @@ public class Board {
     /**
      * to Move the Items and Characters
      */
-    public void board_moving(Board item, int Iqx, int Iqy,Board obstacle,
-                             int wqx, int wqy, int mover){
+    public void board_moving(Board item, int Iqx, int Iqy,
+                             int wqx, int wqy, int c1qx, int c1qy,
+                             int c2qx, int c2qy, int c3qx, int c3qy,
+                             int c4qx, int c4qy, int mover){
         int Iqx_n;
         int Iqy_n;
         Iqx_n=0;
@@ -98,6 +102,18 @@ public class Board {
             }else if(Iqx_n<0){
                 Iqx_n=14;
             }else if(Iqx_n==wqx && Iqy_n==wqy) {
+                Iqx_n = Iqx;
+                Iqy_n = Iqy;
+            }else if(Iqx_n==c1qx && Iqy_n==c1qy) {
+                Iqx_n = Iqx;
+                Iqy_n = Iqy;
+            }else if(Iqx_n==c2qx && Iqy_n==c2qy) {
+                Iqx_n = Iqx;
+                Iqy_n = Iqy;
+            }else if(Iqx_n==c3qx && Iqy_n==c3qy) {
+                Iqx_n = Iqx;
+                Iqy_n = Iqy;
+            }else if(Iqx_n==c4qx && Iqy_n==c4qy) {
                 Iqx_n = Iqx;
                 Iqy_n = Iqy;
             }
